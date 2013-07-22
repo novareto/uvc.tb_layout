@@ -3,8 +3,6 @@
 # cklinger@novareto.de
 
 import uvclight
-
-
 from cromlech.browser import ITemplate
 from dolmen.menu.interfaces import IMenu, IMenuEntry
 from grokcore.component import adapter, implementer, global_adapter
@@ -17,14 +15,6 @@ class GlobalMenu(uvclight.Menu):
     uvclight.implements(interfaces.IGlobalMenu)
     uvclight.name('globalmenu')
     css = "nav nav-tabs pull-right"
-     
-    def update(self):
-        uvclight.Menu.update(self)
-        submenus = getAdapters(
-            (self.context, self.request, self.view, self), IMenu)
-        for name, submenu in submenus:
-            submenu.update()
-            self.viewlets += submenu.viewlets
 
 
 class FooterMenu(uvclight.Menu):
@@ -39,20 +29,11 @@ class PersonalPreferences(uvclight.Menu):
     css = "nav pull-right"
 
 
-class DocumentActionsMenu(uvclight.Menu):
+class DocumentActionsMenu(uvclight.SubMenu):
     uvclight.implements(interfaces.IDocumentActions)
+    uvclight.viewletmanager(GlobalMenu)
     uvclight.name('documentactions')
     css = "pull-right"
-
-    def __init__(self, context, request, view, parentmenu=None):
-        uvclight.Menu.__init__(self, context, request, view)
-        self.parentmenu = parentmenu
-
-
-global_adapter(
-    DocumentActionsMenu,
-    (Interface, Interface, Interface, interfaces.IGlobalMenu),
-    provides=IMenu)
 
 
 class ExtraViews(uvclight.Menu):
@@ -63,8 +44,6 @@ class ExtraViews(uvclight.Menu):
 class PersonalMenu(uvclight.Menu):
     uvclight.implements(interfaces.IPersonalMenu)
     uvclight.name('personalmenu')
-
-
 
 
 @adapter(IMenu, Interface)
