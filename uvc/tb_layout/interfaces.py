@@ -3,7 +3,13 @@
 # cklinger@novareto.de
 
 
+from dolmen.menu.interfaces import IMenu
 from dolmen.viewlet.interfaces import IViewSlot
+
+
+#
+### Viewlet Managers
+#
 
 
 class IPageTop(IViewSlot):
@@ -36,20 +42,38 @@ class IToolbar(IViewSlot):
     """
 
 
-class IDocumentActions(IViewSlot):
-    """Marker for DocumentActions
+class IFooter(IViewSlot):
+    """ """
+
+
+#
+### Menus
+#
+
+
+class IGlobalMenu(IMenu):
+    """Marker for GlobalMenu
     """
 
 
-class IPersonalPreferences(IViewSlot):
+class IPersonalPreferences(IMenu):
     """Marker for PersonalPreferences
     """
 
 
-from dolmen.menu.interfaces import IMenu
+class IFooterMenu(IMenu):
+    """Marker for Footer
+    """
 
-class IGlobalMenu(IMenu):
-    """Marker for GlobalMenu
+
+class IDocumentActions(IMenu):
+    """Marker for DocumentActions
+    """
+
+
+class IExtraViews(IMenu):
+    """Marker for additional Views for Folders
+       Objects etc...
     """
 
 
@@ -58,42 +82,35 @@ class IPersonalMenu(IMenu):
     """
 
 
-class ISidebar(IMenu):
-    """Marker for Sitebar
-    """
+
+#
+### Maybe Needed
+#
 
 
-class IFooter(IMenu):
-    """Marker for Footer
-    """
 
-class IPageFooter(IViewSlot):
-    """ """
-
-
-class IPanels(IMenu):
-    """Marker interface for the panels display.
-    """
-
-
-class IHelp(IMenu):
-    """Marker for Help
-    """
-
-
-class IExtraInfo(IMenu):
-    """Marker for ExtraInfo in Forms
-    """
-
-
-class IExtraViews(IViewSlot):
-    """Marker for additional Views for Folders
-       Objects etc...
-    """
-
-class ISpotMenu(IViewSlot):
-    """ Special Menu """
-
-
-class IBeforeActions(IViewSlot):
-    """ Marker Interfae"""
+#class ISidebar(IMenu):
+#    """Marker for Sitebar
+#    """
+#
+#
+#class IPanels(IMenu):
+#    """Marker interface for the panels display.
+#    """
+#
+#
+#class IHelp(IMenu):
+#    """Marker for Help
+#    """
+#
+#
+#class IExtraInfo(IMenu):
+#    """Marker for ExtraInfo in Forms
+#    """
+#
+#class ISpotMenu(IViewSlot):
+#    """ Special Menu """
+#
+#
+#class IBeforeActions(IViewSlot):
+#    """ Marker Interfae"""

@@ -1,0 +1,7 @@
+<li tal:attributes="class entry.selected and 'selected' or None">
+<a tal:content="entry.title"
+  tal:attributes="href entry.url;
+  title entry.title or entry.description;
+  alt entry.description">A link</a>
+</li>
+

@@ -1,0 +1,3 @@
+<ul class="nav" tal:attributes="class manager.css" tal:repeat="menu manager.viewlets">
+  <span tal:replace="structure menu.render()"/>
+</ul>
