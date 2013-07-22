@@ -56,16 +56,16 @@ class PersonalPreferencesViewlet(uvclight.Viewlet):
         return self.menu.render()
 
 
-class DocumentActionsMenuViewlet(uvclight.Viewlet):
-    uvclight.viewletmanager(interfaces.IAboveContent)
-    uvclight.context(Interface)
-    uvclight.order(40)
+# class DocumentActionsMenuViewlet(uvclight.Viewlet):
+#     uvclight.viewletmanager(interfaces.IAboveContent)
+#     uvclight.context(Interface)
+#     uvclight.order(40)
 
-    def update(self):
-        self.menu = getMultiAdapter(
-            (self.view.context, self.request, self.view),
-            IViewletManager, 'documentactions')
-        self.menu.update()
+#     def update(self):
+#         self.menu = getMultiAdapter(
+#             (self.view.context, self.request, self.view),
+#             IViewletManager, 'documentactions')
+#         self.menu.update()
 
-    def render(self):
-        return self.menu.render()
+#     def render(self):
+#         return self.menu.render()
