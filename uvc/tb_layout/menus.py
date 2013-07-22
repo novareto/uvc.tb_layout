@@ -3,7 +3,13 @@
 # cklinger@novareto.de
 
 import uvclight
+
+
+from cromlech.browser import ITemplate
+from dolmen.menu.interfaces import IMenu, IMenuEntry
+from grokcore.component import adapter, implementer
 from uvc.tb_layout import interfaces
+from zope.interface import Interface
 
 
 class GlobalMenu(uvclight.Menu):
@@ -39,10 +45,6 @@ class PersonalMenu(uvclight.Menu):
     uvclight.name('personalmenu')
 
 
-from grokcore.component import adapter, implementer
-from zope.interface import Interface
-from dolmen.menu.interfaces import IMenu, IMenuEntry
-from cromlech.browser import ITemplate
 
 
 @adapter(IMenu, Interface)
