@@ -5,16 +5,15 @@
 import uvclight
 from cromlech.browser import ITemplate
 from dolmen.menu.interfaces import IMenu, IMenuEntry
-from grokcore.component import adapter, implementer, global_adapter
+from grokcore.component import adapter, implementer
 from uvc.tb_layout import interfaces
 from zope.interface import Interface
-from zope.component import getAdapters
 
 
 class GlobalMenu(uvclight.Menu):
     uvclight.implements(interfaces.IGlobalMenu)
     uvclight.name('globalmenu')
-    css = "nav nav-tabs pull-right"
+    css = "nav"
 
 
 class FooterMenu(uvclight.Menu):
@@ -29,9 +28,8 @@ class PersonalPreferences(uvclight.Menu):
     css = "nav pull-right"
 
 
-class DocumentActionsMenu(uvclight.SubMenu):
+class DocumentActionsMenu(uvclight.Menu):
     uvclight.implements(interfaces.IDocumentActions)
-    uvclight.viewletmanager(GlobalMenu)
     uvclight.name('documentactions')
     css = "pull-right"
 
@@ -44,6 +42,13 @@ class ExtraViews(uvclight.Menu):
 class PersonalMenu(uvclight.Menu):
     uvclight.implements(interfaces.IPersonalMenu)
     uvclight.name('personalmenu')
+
+
+class ContextualActionsMenu(uvclight.Menu):
+    uvclight.implements(interfaces.IContextualActionsMenu)
+    uvclight.name('contextualactionsmenu')
+    css = "nav pull-right"
+    template = uvclight.get_template('contextualactionsmenu.cpt', __file__)
 
 
 @adapter(IMenu, Interface)

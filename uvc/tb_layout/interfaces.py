@@ -81,6 +81,9 @@ class IPersonalMenu(IMenu):
     """Marker for PersonalMenu
     """
 
+class IContextualActionsMenu(IMenu):
+    """Marker for PersonalMenu
+    """
 
 
 #
