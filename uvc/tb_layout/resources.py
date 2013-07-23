@@ -4,7 +4,7 @@
 
 import uvclight
 
-from uvc.tb_layout import interfaces
+from uvclight import interfaces
 from zope.interface import Interface
 from fanstatic import Library, Resource
 from js.bootstrap import bootstrap_responsive_css, bootstrap_js

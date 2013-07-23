@@ -5,7 +5,7 @@
 import uvclight
 
 
-from uvc.tb_layout import interfaces
+from uvclight import interfaces
 from zope.interface import Interface
 from zope.component import getMultiAdapter
 from dolmen.viewlet.interfaces import IViewletManager

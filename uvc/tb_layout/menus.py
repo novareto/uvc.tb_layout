@@ -6,7 +6,7 @@ import uvclight
 from cromlech.browser import ITemplate
 from dolmen.menu.interfaces import IMenu, IMenuEntry
 from grokcore.component import adapter, implementer
-from uvc.tb_layout import interfaces
+from uvclight import interfaces
 from zope.interface import Interface
 
 
