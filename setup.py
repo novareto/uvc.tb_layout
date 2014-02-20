@@ -23,7 +23,7 @@ setup(name='uvc.tb_layout',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'js.bootstrap',
+          'js.bootstrap >= 3.0',
           # -*- Extra requirements: -*-
       ],
       entry_points={
