@@ -42,3 +42,9 @@ class Footer(uvclight.ViewletManager):
     """
     uvclight.name('uvc-footer')
     uvclight.context(Interface)
+
+
+@uvclight.implementer(interfaces.IExtraInfo)
+class ExtraInfo(uvclight.ViewletManager):
+    uvclight.name('uvcsite.extrainfo')
+    uvclight.context(Interface)
