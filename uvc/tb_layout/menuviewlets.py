@@ -3,8 +3,6 @@
 # cklinger@novareto.de
 
 import uvclight
-
-
 from uvclight import interfaces
 from zope.interface import Interface
 from zope.component import getMultiAdapter

@@ -1,13 +1,14 @@
 <div>
-<ul class="nav" tal:attributes="class manager.css">
-  <li class="dropdown">
-  <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-    Aktionen
-    <b class="caret"></b>
-  </a>
-  <ul class="dropdown-menu">
-    <li tal:repeat="menu manager.viewlets" tal:replace="structure menu.render()"> </li>
+  <ul class="nav" tal:attributes="class manager.css">
+    <li class="dropdown">
+      <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+	Aktionen
+	<b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+	<li tal:repeat="menu manager.viewlets"
+	    tal:replace="structure menu.render()"> </li>
+      </ul>
+    </li>
   </ul>
-  </li>
-</ul>
 </div>

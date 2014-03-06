@@ -13,9 +13,12 @@ from zope.interface import Interface
 class GlobalMenu(uvclight.Menu):
     uvclight.implements(interfaces.IGlobalMenu)
     uvclight.name('globalmenu')
-    css = "nav"
+    css = "nav navbar-nav"
 
-
+    def render(self):
+        return uvclight.Menu.render(self)
+    
+    
 class FooterMenu(uvclight.Menu):
     uvclight.implements(interfaces.IFooterMenu)
     uvclight.name('footermenu')
@@ -25,7 +28,7 @@ class FooterMenu(uvclight.Menu):
 class PersonalPreferences(uvclight.Menu):
     uvclight.implements(interfaces.IPersonalPreferences)
     uvclight.name('personalpreferences')
-    css = "nav pull-right"
+    css = "nav navbar-nav pull-right"
 
 
 class DocumentActionsMenu(uvclight.Menu):
@@ -44,9 +47,7 @@ class PersonalMenu(uvclight.Menu):
     uvclight.name('personalmenu')
 
 
-class ContextualActionsMenu(uvclight.Menu):
-    uvclight.implements(interfaces.IContextualActionsMenu)
-    uvclight.name('contextualactionsmenu')
+class ContextualActionsMenu(uvclight.ContextualActionsMenu):
     css = "nav pull-right"
     template = uvclight.get_template('contextualactionsmenu.cpt', __file__)
 
